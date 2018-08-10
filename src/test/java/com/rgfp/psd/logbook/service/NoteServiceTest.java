@@ -2,6 +2,7 @@ package com.rgfp.psd.logbook.service;
 
 import com.rgfp.psd.logbook.domain.Note;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -9,10 +10,14 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -141,5 +146,18 @@ public class NoteServiceTest {
         assertEquals(-1, topWords.indexOf("more"));
 
     }
+
+    @Test(expected = Exception.class)
+    public void clonarTarjetaContar() {
+        // arrange --> before
+
+        // act
+        noteService.cloneNote(1l);
+        // assert
+
+        verify(noteRepositoryMock.save(any(Note.class)));
+    }
+
+
 
 }

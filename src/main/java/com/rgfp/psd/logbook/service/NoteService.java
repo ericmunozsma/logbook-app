@@ -65,6 +65,7 @@ public class NoteService {
 
     // should clone a note in the DB
     public void cloneNote(Long id) {
+
     }
 
     public List<String> getRepeatedWords() {

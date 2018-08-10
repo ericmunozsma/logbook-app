@@ -54,6 +54,19 @@ public class Note {
 
     public String getSummary() {
         // not implemented
-        return "";
+
+        String texto = this.content;
+
+        if (texto == null) {
+            texto = "";
+        }
+
+        int length = texto.length();
+
+        if (length > 10) {
+            texto = texto.substring(0, 10);
+        }
+
+        return texto;
     }
 }
